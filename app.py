@@ -60,8 +60,12 @@ def predict():
               
         return render_template(output_page, pred_output = pred, user_image = file_path)
     
+# # For local system & cloud
+# if __name__ == "__main__":
+#     app.run(threaded=False,) 
+
 # For local system & cloud
 if __name__ == "__main__":
-    app.run(threaded=False,) 
-    
+    port = int(os.getenv("PORT", 5000))  # Use 5000 for local testing, $PORT for Render
+    app.run(host="0.0.0.0", port=port, threaded=False)
     
