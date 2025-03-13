@@ -1,11 +1,13 @@
-#!/usr/bin/env bash
-# Install system dependencies for h5py and other dependencies
-apt-get update && apt-get install -y \
-    pkg-config \
-    libhdf5-dev \
-    python3-dev \
-    gcc \
-    g++
+#!/bin/bash
+
+# Install system dependencies for HDF5 and h5py
+apt-get update && apt-get install -y libhdf5-dev
 
 # Install Python dependencies
-pip install --no-cache-dir -r requirements.txt
+pip install wheel setuptools
+
+# Install h5py with HDF5 support
+HDF5_DIR=/usr/lib/x86_64-linux-gnu/hdf5/serial pip install h5py --no-cache-dir
+
+# Continue with the remaining requirements
+pip install -r requirements.txt
