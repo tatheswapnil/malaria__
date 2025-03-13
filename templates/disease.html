@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+
+    <title>Malaria Diagnosis Results</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 30px 10px;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            margin: 20px auto;
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+
+        .results-section:hover {
+            transform: scale(1.02);
+        }
+
+        .img-border {
+            border-radius: 15px;
+            border: 4px solid #2575fc;
+            box-shadow: 0 6px 20px rgba(37, 117, 252, 0.5);
+        }
+
+        .content-header {
+            color: white;
+            text-align: center;
+            font-size: 1.8rem;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+        }
+
+        .list-group-item {
+            font-size: 1.2rem;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: none;
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+
+        .list-group-item:hover {
+            background: #e2e6ea;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #2575fc;
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        @media (max-width: 576px) {
+            .header {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        Malaria Diagnosis Report
+    </div>
+
+    <!-- Diagnosis Results -->
+    <div class="container">
+        <div class="results-section">
+            <div class="content-header">Diagnosis Results</div>
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{{ user_image }}" alt="Input Image" class="img-fluid img-border">
+                </div>
+                <div class="col-md-7">
+                    <h3><strong>Diagnosis:</strong></h3>
+                    <p class="text-danger font-weight-bold" style="font-size: 1.5rem;">{{ pred_output }}</p>
+                    <hr>
+                    <h4><strong>Details:</strong></h4>
+                    <p>
+                        Malaria has been detected in the input sample. Symptoms may include fever, chills, fatigue, and
+                        headaches. We recommend seeking medical consultation promptly to ensure proper care.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlight Section -->
+        <div class="highlight-box">
+            <h4><strong>Important:</strong></h4>
+            <p>Early diagnosis and treatment are critical. Avoid mosquito bites and consult a doctor immediately.</p>
+        </div>
+
+        <!-- Home Remedies -->
+        <div class="results-section">
+            <div class="content-header">Effective Home Remedies</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Neem Leaves:</strong> Boil fresh neem leaves and drink the water to reduce symptoms.
+                </li>
+                <li class="list-group-item">
+                    <strong>Ginger Tea:</strong> Brew ginger tea with honey to alleviate nausea and inflammation.
+                </li>
+                <li class="list-group-item">
+                    <strong>Hydration:</strong> Stay hydrated with coconut water, herbal teas, and soups.
+                </li>
+                <li class="list-group-item">
+                    <strong>Turmeric Milk:</strong> Mix turmeric in warm milk to boost immunity and ease discomfort.
+                </li>
+                <li class="list-group-item">
+                    <strong>Rest and Protection:</strong> Use mosquito nets and avoid exposure to mosquito bites.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Need help? Contact us at <a href="mailto:swapniltathe9@gmail.com">swapniltathe9@gmail.com</a></p>
+       
+    </div>
+
+</body>
+
+</html>

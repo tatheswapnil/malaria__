@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <title>Malaria Diagnosis - Healthy Result</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #f3f4f6, #e9ecef);
+            color: #495057;
+        }
+
+        .content-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .pred-output {
+            padding: 20px;
+            background: linear-gradient(45deg, #28a745, #218838);
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .details {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-top: 15px;
+            text-align: justify;
+        }
+
+        .remedy-card {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            border: none;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .remedy-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .remedy-card img {
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 3px solid #007bff;
+        }
+
+        .remedy-card h5 {
+            font-size: 1.3rem;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .remedy-card p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #6c757d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid my-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10 content-container">
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <img src="{{ user_image }}" alt="User Image" class="img-thumbnail rounded-circle shadow">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="pred-output">
+                            {{pred_output}}
+                        </div>
+                        <div class="details mt-3">
+                            <p>Great news! No signs of Malaria were detected. Keep up the healthy lifestyle, and consider the following tips to maintain your well-being.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="remedies mt-5">
+                    <h3 class="text-center mb-4">Health Tips & Remedies</h3>
+                    <div class="card-deck">
+                        <div class="card remedy-card">
+                            <img src="/static/images/water.jpg" alt="Stay Hydrated">
+                            <div class="card-body">
+                                <h5>Stay Hydrated</h5>
+                                <p>Drink 8-10 glasses of water daily to flush out toxins and maintain optimal hydration levels.</p>
+                            </div>
+                        </div>
+                        <div class="card remedy-card">
+                            <img src="/static/images/fruits.jpg" alt="Eat Fresh Fruits">
+                            <div class="card-body">
+                                <h5>Eat Fresh Fruits</h5>
+                                <p>Include fruits like oranges, bananas, and apples in your diet for essential vitamins and antioxidants.</p>
+                            </div>
+                        </div>
+                        <div class="card remedy-card">
+                            <img src="/static/images/exercise.jpg" alt="Regular Exercise">
+                            <div class="card-body">
+                                <h5>Exercise Regularly</h5>
+                                <p>Engage in 30 minutes of exercise daily to boost immunity and improve overall health.</p>
+                            </div>
+                        </div>
+                        <div class="card remedy-card">
+                            <img src="/static/images/mosquito.jpg" alt="Mosquito Control">
+                            <div class="card-body">
+                                <h5>Mosquito Control</h5>
+                                <p>Use mosquito repellents and nets to prevent bites and reduce the risk of mosquito-borne diseases.</p>
+                            </div>
+                        </div>
+                        <div class="card remedy-card">
+                            <img src="/static/images/sleep.jpg" alt="Adequate Sleep">
+                            <div class="card-body">
+                                <h5>Adequate Sleep</h5>
+                                <p>Ensure 7-8 hours of sleep every night to rejuvenate your body and mind.</p>
+                            </div>
+                        </div>
+                        <div class="card remedy-card">
+                            <img src="/static/images/neem.jpg" alt="Herbal Remedies">
+                            <div class="card-body">
+                                <h5>Herbal Remedies</h5>
+                                <p>Consume neem leaves or tulsi tea to boost your immunity naturally.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer mt-5">
+                    <p>Prevention is better than cure. Stay healthy and consult a healthcare professional if needed.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-pzjw8f+ua7Kw1TIq2UTkF6p4MS2+pD1d9mj2R2ty7YtVHy2VQ4uTQBwz+ftgU/AO" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+        integrity="sha384-XpEI6FH9DhqiUxTmWuXzAzBRu64WB8WjQ9yZSAZF8WUM3zUmJwK5nX8Myq+K04vc" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

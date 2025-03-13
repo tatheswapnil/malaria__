@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaria Diagnosis Application</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styling -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Hero Section Animation */
+        @keyframes heroSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-animate {
+            animation: heroSlideIn 1.2s ease-out forwards;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4ade80;
+            border-radius: 10px;
+        }
+
+        /* Hover Effects */
+        .hover-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Upload Section Styles */
+        .file-input:hover {
+            border-color: #22c55e;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+        }
+
+        /* Fixed Image Sizes for Gallery */
+        .gallery-image {
+            object-fit: cover;
+            width: 100%;
+            height: 200px; /* Fixed height */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
+            <a href="#" class="text-2xl font-bold text-green-600 hover:text-green-700">Malaria Diagnosis</a>
+            <div class="space-x-6">
+                <a href="#upload" class="text-gray-600 hover:text-green-600">Upload</a>
+                <a href="#gallery" class="text-gray-600 hover:text-green-600">Gallery</a>
+                <a href="#contact" class="text-gray-600 hover:text-green-600">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-green-400 to-blue-500 text-white h-screen flex items-center justify-center">
+        <div class="text-center hero-animate">
+            <h1 class="text-5xl font-bold leading-snug">
+                Revolutionize Malaria Diagnosis with AI
+            </h1>
+            <p class="mt-4 text-lg font-light">
+                Upload blood sample images for rapid and accurate malaria detection.
+            </p>
+            <a href="#upload" class="mt-6 inline-block bg-green-600 text-white px-6 py-3 rounded-full shadow-lg text-lg font-medium hover:bg-green-700">
+                Get Started
+            </a>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-12 bg-white rounded-t-lg"></div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold text-gray-800">Upload Your Blood Sample</h2>
+            <p class="text-gray-600 mt-4">Submit an image for diagnosis and let AI handle the rest.</p>
+
+            <form action="/predict" method="POST" enctype="multipart/form-data" class="mt-10">
+                <div class="flex flex-col items-center">
+                    <label for="file-upload" class="block text-lg font-medium text-gray-700 mb-2">
+                        Select an Image File
+                    </label>
+                    <input id="file-upload" name="image" type="file" accept="image/*"
+                        class="file-input border-2 border-gray-300 rounded-md p-3 w-3/4 text-gray-700 focus:outline-none focus:border-green-600 transition-all duration-300">
+                </div>
+                <button type="submit"
+                    class="mt-8 bg-green-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-green-700 transition-all duration-300">
+                    Analyze Now
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-gray-100">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl font-bold text-gray-800">Malaria Prevention Tips</h2>
+            <p class="text-gray-600 mt-4">Learn how to protect yourself from malaria.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                <div class="hover-card bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="/static/images/net.jpg" alt="Prevention Tip 1" class="gallery-image">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Use Mosquito Nets</h3>
+                        <p class="text-sm text-gray-600 mt-2">Ensure you sleep under treated mosquito nets to prevent bites.</p>
+                    </div>
+                </div>
+                <div class="hover-card bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="/static/images/mosquitohabitat.jpg" alt="Prevention Tip 2" class="gallery-image">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Avoid Mosquito Habitats</h3>
+                        <p class="text-sm text-gray-600 mt-2">Stay away from areas with stagnant water where mosquitoes breed.</p>
+                    </div>
+                </div>
+                <div class="hover-card bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="/static/images/repell.jpg" alt="Prevention Tip 3" class="gallery-image">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold">Use Insect Repellents</h3>
+                        <p class="text-sm text-gray-600 mt-2">Apply insect repellents on exposed skin to avoid mosquito bites.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="bg-gray-800 py-8 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-2xl font-semibold">Contact Us</h3>
+            <p class="mt-2">Email: <a href="mailto:swapniltathe9@gmail.com" class="text-green-400">swapniltathe9@gmail.com</a></p>
+            
+        </div>
+    </footer>
+
+</body>
+
+</html>
